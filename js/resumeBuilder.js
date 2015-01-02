@@ -1,80 +1,85 @@
-// $("#main").append("Ce BIAN");
-// $("#main").append((299792458*100)/1000000000 );
+// ===JSON Object
 
-// var email = "cbbc1983@yahoo.fr";
-// var new_email = email.replace("yahoo", "gmail");
+var bio = {"name":"Ce BIAN", 
+		   "role":"Consultant Decisionnel", 
+		   "contact": {"mobile":"06.21.21.68.48",
+		    		   "email":"cbbc1983@gmail.com",
+			           "location":"Bordeaux"
+		   }, 
+		   "picture":"Url", 
+		   "message":"Bienvenue sur mon site perso", 
+		   "skills":["QlikView", "Talend", "Oracle", "SQL"]};
 
-// console.log(email);
-// console.log(new_email);
+var education = {
+	"schools": [
+	       {"school":"Universite Lyon 2",
+		    "city":"Lyon",
+		    "level":"Bac+5",
+		    "majors":["info","stat"]
+	       },
+	       {"school":"Universite Grenoble 2",
+		    "city":"Grenoble",
+		    "level":"Bac+3",
+		    "majors":["math","info"]
+	       }   
+	],
+	"onlineCourses": [
+			{"title": "Javascript",
+			 "school": "Udacity",
+			 "dates": "2014" 	
+			}
+	] 
+};
 
-// var awesomeThoughts = "My name is Ce BIAN and I an AWESOME!";
-// var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
+var work = {
+	"jobs": [
+	       {"employer":"MiPih",
+		    "city":"Bordeaux"
+	       },
+	       {"employer":"Maya",
+		    "city":"Bordeaux"
+	       }   
+	]
+};
 
-// $("#main").append(funThoughts);
+var project = {
+	"projects": [
+	       {"name":"RHLook"
+	       },
+	       {"name":"BilanSocial"
+	       }   
+	]
+};
 
-var formattedName = "Ce BIAN";
-var formattedRole = "Consultant Decisionnel";
+// ===Nettoyer '<' '>'
+/*
+var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
 
-var HTMLheaderName = HTMLheaderName.replace("%data%", formattedName);
-var HTMLheaderRole = HTMLheaderRole.replace("%data%", formattedRole);
-
-// $("#header").append(HTMLheaderName);
-// $("#header").append(HTMLheaderRole);
-
-$("#header").prepend(HTMLheaderRole);
-$("#header").prepend(HTMLheaderName);
-
-// === String: Function pour le type String
-/* var s = "audacity";
-var udacityizer = function(s) {  
-    // Right now, the variable s === "audacity"
-    // Manipulate s to make it equal to "Udacity"
+var charEscape = function(_html) {
+    var newHTML = _html;
+    // How will you make sure that newHTML doesn't contain any < or > ?
     // Your code goes here!
-    // var s_tmp = s.slice(1);
-    // var s = s_tmp[0].toUpperCase() + s_tmp.slice(1);
-	var s = s[1].toUpperCase() + s.slice(2);
-    return s;
-};
-// Did your code work? The line below will tell you!
-console.log(udacityizer(s)); */
-
-// === Array: Manipulation d'une liste
-var sampleArray = [0,0,7];
-var incrementLastArrayElement = function(_array) {
-    var newArray = [];
-    // Your code should make newArray equal to an array that has the same
-    // values as _array, but the last number has increased by one.
     
-    // For example:
-    // _array = [1, 2, 3];
-    // turns into:
-    // newArray = [1, 2, 4];
-    
-    // Your code goes in here!
-	// newArray = _array.slice(0);
-    // newArray = newArray.concat(sampleArray[2]+1);
-    newArray = _array.slice(0);
-    var lastNumber = newArray.pop();
-    newArray.push(lastNumber+1);
- 
+    //newHTML = encodeURIComponent(newHTML);
+    newHTML = newHTML.replace(/</g, "&lt;");
+    newHTML = newHTML.replace(/>/g, "&gt;");
     // Don't delete this line!
-    return newArray;
+    return newHTML;
 };
-// Did your code work? The line below will tell you!
-console.log(incrementLastArrayElement(sampleArray));
 
-var name = "AlbERt EINstEiN";
-
-// === String + Array: Combinaison deux types de fonction
-/* function nameChanger(oldName) {
-    var finalName = oldName;
-    // Your code goes here!
-    var firstName = finalName.slice(0,6).toLowerCase();
-    firstName = firstName[0].toUpperCase()+firstName.slice(1);
-    finalName = firstName+" "+finalName.slice(7).toUpperCase();
-    // Don't delete this line!
-    return finalName;
-};
 // Did your code work? The line below will tell you!
-console.log(nameChanger(name)); */
+console.log(charEscape(html));
+*/
+
+if(bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkill);
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+	$("#skills").append(formattedSkill);
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+	$("#skills").append(formattedSkill);
+}
 
